@@ -87,7 +87,7 @@ app.post('/api/send-email', (req, res) => {
 
   const mailOptions = {
     from: 'engineerbro20cs39@gmail.com',
-    to: 'info@redpositive.in',
+    to: 'immridulsharma@gmail.com',
     subject: 'Selected Data',
     text: JSON.stringify(data),
   };

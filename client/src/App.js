@@ -16,7 +16,8 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/data');
+      //const response = await axios.get('http://localhost:4000/api/data');
+      const response = await axios.get('https://assign-backend-ik8j.onrender.com/api/data');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -25,7 +26,8 @@ const App = () => {
 
   const addData = async (newData) => {
     try {
-      const response = await axios.post('http://localhost:4000/api/data', newData);
+      //const response = await axios.post('http://localhost:4000/api/data', newData);
+      const response = await axios.post('https://assign-backend-ik8j.onrender.com/api/data', newData);
       setData([...data, response.data]);
     } catch (error) {
       console.error('Error adding data:', error);
@@ -34,7 +36,8 @@ const App = () => {
 
   const deleteData = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/data/${id}`);
+      //await axios.delete(`http://localhost:4000/api/data/${id}`);
+      await axios.delete(`https://assign-backend-ik8j.onrender.com/api/data/${id}`);
       setData(data.filter((item) => item._id !== id));
     } catch (error) {
       console.error('Error deleting data:', error);
@@ -46,7 +49,8 @@ const App = () => {
       const selectedData = data.filter((item) =>
         selectedRows.includes(item._id)
       );
-      await axios.post('http://localhost:4000/api/send-email', { data: selectedData });
+      //await axios.post('http://localhost:4000/api/send-email', { data: selectedData });
+      await axios.post('https://assign-backend-ik8j.onrender.com/api/send-email', { data: selectedData });
       console.log('Email sent successfully');
     } catch (error) {
       console.error('Error sending email:', error);
